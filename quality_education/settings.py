@@ -29,7 +29,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'krishnateja8432@gmail.com'
-EMAIL_HOST_PASSWORD = 'xohx gsaw noio ueeb'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_DEBUG = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
