@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login{% endblock title %}
+{% block style %}<link rel="stylesheet" href="{% static 'style.css' %}">{% endblock style %}
+{% block body %}
+<div class="container my-5">
+    <h1 style="font-weight: bold; padding: 0px 70px;">Login Page</h1>
+<div class="container my-5">
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="uname" class="form-label">UserName</label>
+            <input type="text" class="form-control" id="uname" name="uname" placeholder="enter username"
+                value="{{ uname }}">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" oninput="passwordPreview()" placeholder="enter your password" style="margin: 0;">
+            <input type="text" class="form-control" name="passwordview" id="passwordview" style="padding: 5px 5px; margin: 0; border-radius: 0; border-top: none; background-color: white;" readonly>
+            <p style="color:red;">{{ loginerr }}</p>
+        </div>
+        <center><button type="submit" class="btn btn-primary" >Submit</button></center>
+        <div class="container align-content-center my-3">
+            <p> Not Yet Registered!!! | <a href="register" style="text-decoration: none;">Register</a></p>
+        </div>
+</div>
+</div>
+<script>
+    function passwordPreview() {
+        const password = document.getElementById("password").value;
+        const passwordPreview = document.getElementById('passwordview');
+        passwordPreview.value = password;
+    }
+</script>
+
+{% endblock body %}

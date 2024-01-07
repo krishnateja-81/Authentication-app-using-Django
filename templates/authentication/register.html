@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Register{% endblock title %}
+{% block style %}<link rel="stylesheet" href="{% static 'style.css' %}">{% endblock style %}
+{% block body %}
+    <div class="container my-5">
+        <h1 style="font-weight: bold;">Registration Form</h1>
+    <div class="container my-5">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name"
+                    value="{{ fname }}">
+                <div class="error-message" id="fnameerr"></div>
+            </div>
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your last name"
+                    value="{{ lname }}">
+                <div class="error-message" id="lnameerr"></div>
+            </div>
+            <div class="mb-3">
+                <label for="uname" class="form-label">Username</label>
+                <input type="text" class="form-control" id="uname" name="uname" placeholder="Create username"
+                    value="{{ uname }}">
+                <div class="error-message" id="unameerr">{{ exists }}</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password"
+                    placeholder="Enter your password">
+                <div class="error-message" id="passworderr"></div>
+            </div>
+            <div class="mb-3">
+                <label for="confirmpassword" class="form-label">Re-Enter Password</label>
+                <input type="password" class="form-control" id="confirmpassword" name="confirmpassword"
+                    placeholder="Confirm your password">
+                    <div class="error-message" id="passworderr1"></div>
+            </div>
+                <div>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" value="{{ email }}" style="padding: 10px 10px;">
+                    <div class="error-message" id="emailerr">{{ emailerr }}</div>
+                </div>
+            <div class="mb-3" id="emailval"></div>
+            <center><button type="submit" class="btn btn-primary" onclick="return validate()">Submit</button></center>
+        </form>
+        <div class="container align-content-center my-3">
+            <center><p> Already an user? | <a href="login" style="text-decoration: none;">Login</a></p></center>
+        </div>
+    </div>
+    </div>
+
+    {% endblock body %}

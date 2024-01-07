@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}OTP Verification{% endblock title %}
+{% block style %}<link rel="stylesheet" href="{% static 'style.css' %}">{% endblock style %}
+{% block body %}
+{{ opterr }}
+<div class="container my-5">
+    <h1 style="font-weight: bold; padding: 0px 25px;">OTP Verification</h1>
+<div class="container my-5">
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="uname" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" name="email" 
+                value="{{ email }}" style="cursor: not-allowed;" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="otp" class="form-label">OTP</label>
+            <input type="text" class="form-control" id="otp" name="otp" placeholder="enter OTP">
+        </div>
+        <center><button type="submit" class="btn btn-primary" >Submit</button></center>
+        <div class="container align-content-center my-3">
+            <p style="padding: 0px 25px;"> Not Yet Registered!!! | <a href="register" style="text-decoration: none;">Register</a></p>
+        </div>
+</div>
+</div>
+
+{% endblock body %}
